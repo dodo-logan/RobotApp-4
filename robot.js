@@ -1,4 +1,4 @@
-(function () {
+{
   'use strict';
 
   const board = [
@@ -96,7 +96,7 @@
 
     switch (robot.dir) {
       case 'up':
-        if (y < board.length - 1){
+        if (y < board.length - 1) {
           y = y + 1;
         }
         break;
@@ -106,12 +106,12 @@
         }
         break;
       case 'left':
-        if(x > 0){
+        if (x > 0) {
           x = x - 1;
         }
         break;
       case 'right':
-        if (x < board[0].length - 1){
+        if (x < board[0].length - 1) {
           x = x + 1;
         }
         break;
@@ -136,51 +136,51 @@
       console.log('move blocked by obstacle');
     }
 
-      moves += 1;
-      renderBoard();
+    moves += 1;
+    renderBoard();
   }
 
   function turn(turnDirection) {
-   if(turnDirection !== "left" && turnDirection !== "right") {
-      console.log("ignoring invalid turn" , turnDirection);
+    if (turnDirection !== "left" && turnDirection !== "right") {
+      console.log("ignoring invalid turn", turnDirection);
       return;
-   }
-   console.log("executing turn()");
+    }
+    console.log("executing turn()");
     switch (robot.dir) {
       case 'up':
-        if (turnDirection === 'left'){
+        if (turnDirection === 'left') {
           robot.dir = 'left';
         
-        }  else {
+        } else {
           robot.dir = 'right';
         }
         break;
 
-      case 'down';
+      case 'down':
         if (turnDirection === 'left') {
-          robot.dir = 'right' ;
-          }else {
+          robot.dir = 'right';
+        } else {
           robot.dir = 'left';
-          }  
+        }
         break;
       case 'left':
         if (turnDirection === 'left') {
-          robot.dir = 'down' ;
-          }else {
+          robot.dir = 'down';
+        } else {
           robot.dir = 'up';
-          }
+        }
         break;
       case 'right':
         if (turnDirection === 'left') {
-          robot.dir = 'up' ;
-         }else{
-          robot.dir =  'down';
-        break;
+          robot.dir = 'up';
+        } else {
+          robot.dir = 'down';
+          break;
+        }
+
+        turns += 1;
+        renderBoard();
     }
-
-      turns += 1;
-      renderBoard();
-   }
-
-    renderAll();
-}) ();
+  }
+  renderAll();
+}
